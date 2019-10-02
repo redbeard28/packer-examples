@@ -55,7 +55,10 @@
     "keep_registered": true,
 
     "vmx_data": {
-      "ethernet0.networkName": "VM Network"
+      "ethernet0.networkName": "VM Network",
+      "memsize": "2048",
+      "numvcpus":"2",
+      "tools.upgrade.policy": "manual"
     }
   }],
   "provisioners": [
