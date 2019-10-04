@@ -6,6 +6,6 @@
   # gather_facts: false
 
   roles:
-    - { role: roles/git, tags: [git] }
-    - { role: roles/ntpclient, tags: [ntpclient] }
-    - { role: roles/sudoers, tags: [sudoers] }
+    - { role: git, tags: [git] }
+    - { role: ntpclient, tags: [ntpclient] }
+    - { role: sudoers, tags: [sudoers] }
