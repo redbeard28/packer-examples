@@ -1,0 +1,11 @@
+---
+
+- name: "Deploy commons"
+  hosts: all
+  become: yes
+  # gather_facts: false
+
+  roles:
+    - { role: ../ansible/roles/git, tags: [git] }
+    - { role: ../ansible/roles/ntpclient, tags: [ntpclient] }
+    - { role: ../ansible/roles/sudoers, tags: [sudoers] }

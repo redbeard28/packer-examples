@@ -36,7 +36,7 @@
     "boot_command": [
         "<esc><wait>",
         "install <wait>",
-        " preseed/url=https://cheatsheets.redbeard-consulting.fr/feeds/debian911.cfg <wait>",
+        " preseed/url=https://raw.githubusercontent.com/redbeard28/packer-examples/master/preseeds/debian911.cfg <wait>",
         "debian-installer=en_US.UTF-8 <wait>",
         "auto <wait>",
         "locale=en_US.UTF-8 <wait>",
