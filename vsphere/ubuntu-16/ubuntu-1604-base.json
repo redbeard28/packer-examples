@@ -25,7 +25,7 @@
     ],
 
     "floppy_files": [
-      "preseeds/ubuntu-16.cfg"
+      "../preseeds/ubuntu-16.cfg"
     ],
 
     "boot_command": [
@@ -52,7 +52,7 @@
     "remote_datastore": "{{user `esxi_datastore`}}",
     "remote_username": "{{user `esxi_username`}}",
     "remote_password": "{{user `esxi_password`}}",
-    "keep_registered": true
+    "keep_registered": true,
 
     "vmx_data": {
       "ethernet0.networkName": "VM Network",
@@ -63,9 +63,19 @@
     }
   }],
   "provisioners": [
-      {
-        "type": "shell",
-        "inline": ["echo 'template build complete'"]
-      }
-    ]
+    {
+      "type": "shell",
+      "script": "scripts/ansible.sh",
+      "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -S -E bash '{{.Path}}'"
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "ansible/deploy_commons.yml",
+      "group_vars": "ansible/group_vars"
+    },
+    {
+      "type": "shell",
+      "script": "scripts/cleanup.sh"
+    }
+  ]
 }

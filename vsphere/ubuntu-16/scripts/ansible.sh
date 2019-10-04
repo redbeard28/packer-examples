@@ -11,7 +11,11 @@
 #   Date: 20/08/2018                        #
 #   UPDATE: 1.0 add github clone            #
 #############################################
-
+echo "
+# ubuntu user is default user in cloud-images.
+# It needs passwordless sudo functionality.
+ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/90-cloudimg-ubuntu
+echo "includedir /etc/sudoers.d" >> /etc/sudoers
 # From:
 # https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-ubuntu
 apt-get -y update && apt-get -y upgrade
