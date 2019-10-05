@@ -1,0 +1,15 @@
+---
+- name: git
+  src: git+https://github.com/redbeard28/redbeard28.gitclient.git
+  version: master
+
+- name: ntpclient
+  src: git+https://github.com/redbeard28/redbeard28.ntpclient.git
+  version: master
+
+- name: resolvconf
+  src: git+https://github.com/redbeard28/redbeard28.resolvconf.git
+  version: master
+
+- name: sudoers
+  src: andrewrothstein.sudoers

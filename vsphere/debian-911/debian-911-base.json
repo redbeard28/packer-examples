@@ -30,13 +30,13 @@
     ],
 
     "floppy_files": [
-      "preseeds/debian911.cfg"
+      "../preseeds/debian911.cfg"
     ],
 
     "boot_command": [
         "<esc><wait>",
         "install <wait>",
-        " preseed/url=https://raw.githubusercontent.com/redbeard28/packer-examples/master/preseeds/debian911.cfg <wait>",
+        " preseed/url=https://raw.githubusercontent.com/redbeard28/packer-examples/master/vsphere/preseeds/debian911.cfg <wait>",
         "debian-installer=en_US.UTF-8 <wait>",
         "auto <wait>",
         "locale=en_US.UTF-8 <wait>",
@@ -70,9 +70,24 @@
     }
   }],
   "provisioners": [
-      {
-        "type": "shell",
-        "inline": ["echo 'template build complete'"]
-      }
-    ]
+    {
+      "type": "shell",
+      "script": "scripts/ansible.sh",
+      "execute_command": "echo 'debian' | {{.Vars}} sudo -S -E bash '{{.Path}}'"
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "ansible/deploy_commons.yml",
+      "role_paths": [
+        "ansible/roles/git",
+        "ansible/roles/ntpclient",
+        "ansible/roles/resolvconf",
+        "ansible/roles/sudoers"
+      ]
+    },
+    {
+      "type": "shell",
+      "script": "scripts/cleanup.sh"
+    }
+  ]
 }
