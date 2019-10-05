@@ -19,8 +19,9 @@ apt-get -y install software-properties-common
 #apt-add-repository ppa:ansible/ansible
 
 # Install Ansible.
-apt-get -y python3 python3-pip git
-python3 -m pip install ansible
+#apt-get -y python3 python3-pip git
+#python3 -m pip install ansible
+pip3 install ansible
 
 git clone https://github.com/redbeard28/packer-examples.git
 cd packer-examples/vsphere/debian-911/ansible
