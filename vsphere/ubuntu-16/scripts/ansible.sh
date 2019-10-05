@@ -23,11 +23,11 @@ apt-get -y install software-properties-common
 apt-add-repository ppa:ansible/ansible
 
 # Install Ansible.
-apt-get -y update
-apt-get -y install ansible
+apt-get -y python3 python3-pip
+pip3 install ansible
 
 git clone https://github.com/redbeard28/packer-examples.git
-cd packer-examples/digitalocean/ansible
+cd packer-examples/vsphere/ubuntu-16
 chmod +x install_requirements.sh
 ls -l
 ./install_requirements.sh

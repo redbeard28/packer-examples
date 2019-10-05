@@ -4,8 +4,7 @@
   hosts: all
   become: yes
   # gather_facts: false
-
   roles:
-    - { role: git, tags: [git] }
-    - { role: ntpclient, tags: [ntpclient] }
-    - { role: sudoers, tags: [sudoers] }
+    - { role: roles/git, tags: [git] }
+    - { role: roles/ntpclient, tags: [ntpclient] }
+    - { role: roles/sudoers, tags: [sudoers] }

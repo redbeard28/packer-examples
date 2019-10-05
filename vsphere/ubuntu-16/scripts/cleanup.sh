@@ -13,8 +13,7 @@
 #############################################
 
 # Uninstall Ansible and remove PPA.
-apt -y remove --purge ansible
-apt-add-repository --remove ppa:ansible/ansible
+pip3 uninstall ansible
 
 # Apt cleanup.
 apt -y autoremove
