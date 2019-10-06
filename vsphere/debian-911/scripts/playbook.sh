@@ -50,4 +50,4 @@ echo "#####################"
 echo "#####################"
 echo "  ANSIBLE-PLAYBOOK"
 echo "#####################"
-ansible-playbook --connection=local --inventory 127.0.0.1, deploy_commons.yml
+ansible-playbook --connection=local --inventory 127.0.0.1, deploy_commons.yml --extra-vars "ansible_sudo_pass=debian"
