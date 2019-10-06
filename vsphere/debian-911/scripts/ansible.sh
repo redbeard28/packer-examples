@@ -16,16 +16,6 @@
 # https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-ubuntu
 apt-get -y update && apt-get -y upgrade
 
-# Install Ansible.
-echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
-sudo apt update
-sudo apt install ansible -y
+python3.5 -m pip install ansible
 
-ansible --version
 
-git clone https://github.com/redbeard28/packer-examples.git
-cd packer-examples/vsphere/debian-911/ansible
-chmod +x install_requirements.sh
-ls -l
-./install_requirements.sh

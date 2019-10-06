@@ -74,16 +74,9 @@
       "type": "shell",
       "script": "scripts/ansible.sh",
       "execute_command": "echo 'debian' | {{.Vars}} sudo -S -E bash '{{.Path}}'"
-    },
-    {
-      "type": "ansible-local",
-      "playbook_file": "ansible/deploy_commons.yml",
-      "role_paths": [
-        "ansible/roles/git",
-        "ansible/roles/ntpclient",
-        "ansible/roles/resolvconf",
-        "ansible/roles/sudoers"
-      ]
+    },{
+      "type": "shell",
+      "script": "scripts/playbook.sh"
     },
     {
       "type": "shell",
