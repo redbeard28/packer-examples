@@ -17,7 +17,7 @@ install_user=debian
 apt-get -y update && apt-get -y upgrade
 
 python3.5 -m pip install ansible
-sed -i "s/\#includedir/includedir/g" /etc/sudoers
-echo "$install_user ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/dont-prompt-$install_user-for-password
-
+#sed -i "s/\#includedir/includedir/g" /etc/sudoers
+#echo "$install_user ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/dont-prompt-$install_user-for-password
+usermod -aG sudo $install_user
 
