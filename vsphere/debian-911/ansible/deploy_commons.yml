@@ -8,3 +8,4 @@
     - { role: roles/git, tags: [git] }
     - { role: roles/ntpclient, tags: [ntpclient] }
     - { role: roles/sudoers, tags: [sudoers] }
+    - { role: roles/admin_tools, tags: [admin_tools] }
