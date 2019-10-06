@@ -46,4 +46,4 @@ echo "#####################"
 echo "#####################"
 echo "  ANSIBLE-PLAYBOOK"
 echo "#####################"
-ansible-playbook deploy_commons.yml -vvvv
+ansible-playbook deploy_commons.yml -i /home/debian/ansible_hosts -vvvv
