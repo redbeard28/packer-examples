@@ -21,3 +21,5 @@ python3.5 -m pip install ansible
 #echo "$install_user ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/dont-prompt-$install_user-for-password
 usermod -aG sudo $install_user
 
+mkdir /etc/ansible
+echo "127.0.0.1 ansible_connection=local" > /etc/ansible/hosts

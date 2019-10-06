@@ -16,7 +16,6 @@
 
 
 echo "127.0.0.1 ansible_connection=local" > /home/debian/ansible_hosts
-echo "127.0.0.1 ansible_connection=local" > /etc/ansible/hosts
 echo "
 export ANSIBLE_INVENTORY=/home/debian/ansible_hosts
 export ANSIBLE_CONFIG=/home/debian/packer-examples/vsphere/debian-911/ansible/ansible.cfg
