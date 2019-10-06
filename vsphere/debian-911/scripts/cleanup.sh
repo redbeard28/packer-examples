@@ -13,10 +13,10 @@
 #############################################
 
 # Uninstall Ansible and remove PPA.
-python3 -m pip uninstall ansible -y
+sudo python3 -m pip uninstall ansible -y
 
 # Apt cleanup.
-apt -y autoremove
-apt -y update
+sudo apt-get -y autoremove
+sudo apt-get -y update
 
 rm -rf packer-examples

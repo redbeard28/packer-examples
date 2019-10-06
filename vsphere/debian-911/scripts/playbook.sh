@@ -34,9 +34,9 @@ echo""
 echo "#####################"
 echo "  CLONE REDBEARD28 REPO"
 echo "#####################"
-cd ~/
+
 git clone https://github.com/redbeard28/packer-examples.git
-cp packer-examples/vsphere/debian-911/ansible/ansible.cfg /etc/ansible/
+#cp packer-examples/vsphere/debian-911/ansible/ansible.cfg /etc/ansible/
 cd packer-examples/vsphere/debian-911/ansible/
 chmod +x install_requirements.sh
 echo "#####################"
