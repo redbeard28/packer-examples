@@ -23,9 +23,8 @@
       "script": "scripts/ansible.sh"
     },
     {
-      "type": "ansible-local",
-      "playbook_file": "../ansible/deploy_commons.yml",
-      "group_vars": "../ansible/group_vars"
+      "type": "ansible",
+      "playbook_file": "../ansible/deploy_commons.yml"
     },
     {
       "type": "shell",
