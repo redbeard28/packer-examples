@@ -17,3 +17,6 @@
 - name: admin_tools
   src: git+https://github.com/redbeard28/redbeard28.admin_tools.git
   version: master
+
+- name: docker-ce
+  src: nickjj.docker
