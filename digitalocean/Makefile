@@ -18,3 +18,8 @@ packer-build:
 	cd packer && \
 	packer build template.json && \
 	cd -
+
+debian911-packer-build:
+	cd debian-911 && \
+	time  packer build debian-911-base.json && \
+	cd -
