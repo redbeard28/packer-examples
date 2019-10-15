@@ -7,7 +7,7 @@ usage() {
   echo "
     $job_name -a install-commons
     $job_name -a install-ansible
-    $job_name -a lauch-playbook
+    $job_name -a launch-playbook
     $job_name -a remove-ansible
   "
 
@@ -49,14 +49,24 @@ ansible-requirements() {
 }
 
 ansible-deploy-commons() {
-    ansible-requirements
     cd ${PATH_DEBIAN911_PLAYBOOK} && \
     ansible-playbook --connection=local --inventory 127.0.0.1, deploy_commons.yml
+}
+
+ansible-deploy-docker() {
+    cd ${PATH_DEBIAN911_PLAYBOOK} && \
+    ansible-playbook --connection=local --inventory 127.0.0.1, deploy_docker.yml
 }
 
 remove-ansible() {
     cd ${PATH_DEBIAN911_SCRIPTS} && \
     ./cleanup.sh
+}
+
+launch-playbook(){
+  ansible-requirements
+  ansible-deploy-commons
+  ansible-deploy-docker
 }
 
 case "${ACTION}" in
@@ -66,8 +76,8 @@ case "${ACTION}" in
     install-ansible)
         install-ansible
         ;;
-    lauch-playbook)
-        lauch-playbook
+    launch-playbook)
+        launch-playbook
         ;;
     remove-ansible)
         remove-ansible
