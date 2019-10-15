@@ -22,3 +22,5 @@ sudo apt-get -y autoremove
 sudo apt-get -y update
 
 rm -rf ${PATH_LOCAL_REPO}
+rm -rf *.sh
+rm -rf *.env

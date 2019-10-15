@@ -53,10 +53,10 @@ ansible-deploy-commons() {
     ansible-playbook --connection=local --inventory 127.0.0.1, deploy_commons.yml
 }
 
-ansible-deploy-docker() {
-    cd ${PATH_DEBIAN911_PLAYBOOK} && \
-    ansible-playbook --connection=local --inventory 127.0.0.1, deploy_docker.yml
-}
+#ansible-deploy-docker() {
+#    cd ${PATH_DEBIAN911_PLAYBOOK} && \
+#    ansible-playbook --connection=local --inventory 127.0.0.1, deploy_docker.yml
+#}
 
 remove-ansible() {
     cd ${PATH_DEBIAN911_SCRIPTS} && \
@@ -66,7 +66,6 @@ remove-ansible() {
 launch-playbook(){
   ansible-requirements
   ansible-deploy-commons
-  ansible-deploy-docker
 }
 
 case "${ACTION}" in

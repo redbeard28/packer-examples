@@ -46,8 +46,8 @@ resource "digitalocean_droplet" "staging" {
       "chmod +x /root/install-commons.sh",
       "/root/install-commons.sh  -a install-commons",
       "/root/install-commons.sh  -a install-ansible",
-      "/root/install-commons.sh  -a lauch-playbook",
-      "/root/install-commons.sh  -a remove-ansible"
+      "/root/install-commons.sh  -a launch-playbook"
+  #    "/root/install-commons.sh  -a remove-ansible"
     ]
   }
 
