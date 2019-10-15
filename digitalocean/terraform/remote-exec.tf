@@ -8,7 +8,12 @@ resource "null_resource" "configure-debian-911" {
       private_key = "${file(var.pvt_key)}"
       timeout = "2m"
   }
-  
+
+  provisioner "file" {
+    source = "../debian-911/Makefile"
+    destination = "$HOME/"
+  }
+
   provisioner "file" {
     source = "../debian-911/debian-911.env"
     destination = "$HOME/"
@@ -18,10 +23,10 @@ resource "null_resource" "configure-debian-911" {
 
   provisioner "remote-exec" {
     inline = [
-      "${HOME}/packer-examples/digitalocean/debian-911/install-commons.sh  -a install-commons",
-      "${HOME}/packer-examples/digitalocean/debian-911/install-commons.sh  -a install-ansible",
-      "${HOME}/packer-examples/digitalocean/debian-911/install-commons.sh  -a lauch-playbook",
-      "${HOME}/packer-examples/digitalocean/debian-911/install-commons.sh  -a remove-ansible"
+      "/root/packer-examples/digitalocean/debian-911/install-commons.sh  -a install-commons",
+      "/root/packer-examples/digitalocean/debian-911/install-commons.sh  -a install-ansible",
+      "/root/packer-examples/digitalocean/debian-911/install-commons.sh  -a lauch-playbook",
+      "/root/packer-examples/digitalocean/debian-911/install-commons.sh  -a remove-ansible"
     ]
   }
 
