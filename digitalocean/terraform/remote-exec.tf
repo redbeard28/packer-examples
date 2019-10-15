@@ -10,22 +10,16 @@ resource "null_resource" "configure-debian-911" {
   }
 
   provisioner "file" {
-    source = [
-      "../debian-911/Makefile",
-      "../debian-911/debian-911.env"
-    ]
+    source = "../debian-911/Makefile"
+    destination = "$HOME/"
+  }
+
+  provisioner "file" {
+    source = "../debian-911/debian-911.env"
     destination = "$HOME/"
   }
 
   # Executing make on remote debian server
-
-  provisioner "remote-exec" {
-    inline = [
-      "apt-get -y update",
-      "apt-get -y upgrade",
-      "apt-get -y install git make"
-    ]
-  }
 
   provisioner "remote-exec" {
     inline = [
