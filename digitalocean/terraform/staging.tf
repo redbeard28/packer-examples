@@ -30,23 +30,23 @@ resource "digitalocean_droplet" "staging" {
   }
 
   provisioner "file" {
-    source = "../debian-911/Makefile"
-    destination = "$HOME/"
+    source = "../debian-911/install-commons.sh"
+    destination = "/root/install-commons.sh"
   }
 
   provisioner "file" {
     source = "../debian-911/debian-911.env"
-    destination = "$HOME/"
+    destination = "/root/debian-911.env"
   }
 
   # Executing make on remote debian server
 
   provisioner "remote-exec" {
     inline = [
-      "/root/packer-examples/digitalocean/debian-911/install-commons.sh  -a install-commons",
-      "/root/packer-examples/digitalocean/debian-911/install-commons.sh  -a install-ansible",
-      "/root/packer-examples/digitalocean/debian-911/install-commons.sh  -a lauch-playbook",
-      "/root/packer-examples/digitalocean/debian-911/install-commons.sh  -a remove-ansible"
+      "/root/install-commons.sh  -a install-commons",
+      "/root/install-commons.sh  -a install-ansible",
+      "/root/install-commons.sh  -a lauch-playbook",
+      "/root/install-commons.sh  -a remove-ansible"
     ]
   }
 
