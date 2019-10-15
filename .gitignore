@@ -4,6 +4,7 @@
 
 ### jcu Packer/Terraform personnal vars
 packer/variables.json
+HELP.*
 *.retry
 .env
 .terraform

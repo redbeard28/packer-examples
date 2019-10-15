@@ -15,7 +15,7 @@
 # From:
 # https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-ubuntu
 apt-get -y update && apt-get -y upgrade
-apt-get -y install python3-pip git make
+apt-get -y install python3-pip git gcc g++ make
 
 
 
