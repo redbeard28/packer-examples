@@ -1,4 +1,6 @@
 #!/bin/bash -eux
+job_name=`basename "$0"`
+source ${HOME}/debian-911.env
 #############################################
 #                                           #
 #   clean.sh Bash script           #

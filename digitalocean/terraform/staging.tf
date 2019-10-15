@@ -43,6 +43,7 @@ resource "digitalocean_droplet" "staging" {
 
   provisioner "remote-exec" {
     inline = [
+      "chmod +x /root/install-commons.sh",
       "/root/install-commons.sh  -a install-commons",
       "/root/install-commons.sh  -a install-ansible",
       "/root/install-commons.sh  -a lauch-playbook",

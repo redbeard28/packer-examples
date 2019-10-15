@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/bash -eux
 job_name=`basename "$0"`
-source debian-911.env
+source ${HOME}/debian-911.env
 
 
 usage() {
@@ -14,8 +14,8 @@ usage() {
 
 }
 
-while getopts ":a:h" o; do
-    case "${o}" in
+while getopts "a:h" OPTION; do
+    case "${OPTION}" in
         a)
             ACTION=${OPTARG}
             ;;
@@ -30,9 +30,12 @@ while getopts ":a:h" o; do
 done
 
 install-commons() {
-git clone https://github.com/redbeard28/${REPO_NAME}.git && \
-chmod +x ${PATH_DEBIAN911_SCRIPTS}/*.sh
-chmod +x ${PATH_DEBIAN911_PLAYBOOK}/*.sh
+  apt-get update
+  apt-get -y upgrade
+  apt-get -y install git
+  git clone https://github.com/redbeard28/${REPO_NAME}.git && \
+  chmod +x ${PATH_DEBIAN911_SCRIPTS}/*.sh
+  chmod +x ${PATH_DEBIAN911_PLAYBOOK}/*.sh
 }
 
 install-ansible() {
@@ -42,7 +45,7 @@ install-ansible() {
 
 ansible-requirements() {
     cd ${PATH_DEBIAN911_PLAYBOOK} && \
-    ./install_requirements.sh && \
+    ./install_requirements.sh
 }
 
 ansible-deploy-commons() {
@@ -57,21 +60,21 @@ remove-ansible() {
 }
 
 case "${ACTION}" in
-        install-commons)
-            install-commons
-            ;;
-        install-ansible)
-            install-ansible
-            ;;
-        lauch-playbook)
-            lauch-playbook
-            ;;
-        remove-ansible)
-            remove-ansible
-            ;;
-        *)
-            usage
-            exit 1
-            ;;
+    install-commons)
+        install-commons
+        ;;
+    install-ansible)
+        install-ansible
+        ;;
+    lauch-playbook)
+        lauch-playbook
+        ;;
+    remove-ansible)
+        remove-ansible
+        ;;
+    *)
+        usage
+        exit 1
+        ;;
 esac
 
