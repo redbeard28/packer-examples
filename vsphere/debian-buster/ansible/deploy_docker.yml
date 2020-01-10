@@ -1,0 +1,7 @@
+---
+- name: "Deploy docker"
+  hosts: all
+  become: yes
+  # gather_facts: false
+  roles:
+    - { role: roles/docker-ce, tags: [docker-ce] }
