@@ -9,6 +9,8 @@ HELP.*
 .env
 .terraform
 *.tfstate*
+variables.json
+
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
@@ -99,3 +101,5 @@ molecule/default/tests/__pycache__
 .idea/
 .DS_Store
 !/.gitignore
+#/vsphere/debian-buster/
+#/vsphere/debian-1010/

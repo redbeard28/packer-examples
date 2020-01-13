@@ -1,7 +1,7 @@
 {
   "builders": [{
-    "name": "debian-buster-gitlab",
-    "vm_name": "debian-buster-gitlab",
+    "name": "openldap",
+    "vm_name": "openldap",
     "type": "vmware-iso",
     "guest_os_type": "debian10-64",
     "tools_upload_flavor": "linux",

@@ -1,0 +1,12 @@
+user: root
+
+ntp_servers:
+    - 0.fr.pool.ntp.org
+    - 1.fr.pool.ntp.org
+
+resolv_nameserver:
+  - '1.1.1.1'
+  - '1.0.0.1'
+  - '9.9.9.9'
+
+resolv_search: 'redbeard28.local'

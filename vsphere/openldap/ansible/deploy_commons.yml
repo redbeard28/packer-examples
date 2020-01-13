@@ -1,0 +1,11 @@
+---
+
+- name: "Deploy Needs"
+  hosts: all
+  become: yes
+  # gather_facts: false
+  roles:
+    - { role: roles/git, tags: [git] }
+    - { role: roles/ntpclient, tags: [ntpclient] }
+    - { role: roles/sudoers, tags: [sudoers] }
+    - { role: roles/basetools, tags [basetools] }
